@@ -368,3 +368,42 @@ body.ai-open .ai-fab { display: none !important; }
 .msg:has(.msg-reply-quote) .media-wrap {
   max-width: 100%;
 }
+
+/* ============================================================
+   BLOK SELEKSI TEKS NATIVE ANDROID (Salin / Pilih semua)
+   Input & textarea tetap bisa diketik/diseleksi.
+   ============================================================ */
+html, body,
+.chat-item, .chat-item *,
+.msg, .msg *,
+.msg-with-av, .msg-with-av *,
+.messages, .messages *,
+.conv-header, .conv-header *,
+.conv-name, .conv-status,
+.preview, .prev-sender,
+.action-sheet, .action-sheet *,
+.as-btn, .as-title,
+.nav, .nav *,
+.topbar, .topbar *,
+.status-tile, .status-tile *,
+.sticker-panel, .sticker-panel *,
+.media-compose, .media-compose *,
+.gc-page, .gc-page *,
+#group-messages, #group-messages *,
+#messages, #messages * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Input & textarea tetap bisa select (ketik / salin manual di composer) */
+input, textarea,
+input *, textarea *,
+.composer input, .composer textarea,
+#composer-input, #group-composer-input, #ai-composer-input,
+.mc-caption, [contenteditable="true"] {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
