@@ -1,0 +1,135 @@
+/* Grup */
+.group-avatar{background:linear-gradient(135deg,#6aa8ff,var(--primary));color:#fff}
+.group-composer-attach{flex:0 0 auto}
+.group-member-row{display:flex;align-items:center;gap:11px;padding:11px 18px;border-bottom:1px solid #f0f2f5}
+.group-member-row:last-child{border-bottom:0}
+.group-member-row .who{flex:1;min-width:0}
+.group-member-row .who strong{display:block;font-size:14px}
+.group-member-row .role-badge{font-size:10px;font-weight:700;color:var(--primary);background:#eaf1ff;padding:2px 8px;border-radius:999px}
+.member-pick-row{display:flex;align-items:center;gap:11px;padding:10px 4px;border-bottom:1px solid #f0f2f5;cursor:pointer}
+.member-pick-row:last-child{border-bottom:0}
+.member-pick-row .who{flex:1;min-width:0;font-size:14px}
+.member-pick-row input[type=checkbox]{width:19px;height:19px;accent-color:var(--primary)}
+
+/* Tabel pengguna di Admin */
+.admin-user-table{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.admin-user-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:#fff;border:1px solid var(--line)}
+.admin-user-row .body{flex:1;min-width:0}
+.admin-user-row .name{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.admin-user-row .sub{font-size:12px;color:var(--muted)}
+.admin-user-row .adm-del{width:38px;height:38px;border-radius:10px;border:0;background:#fdecea;color:var(--danger);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.admin-user-row.is-admin .adm-del{opacity:.35;pointer-events:none}
+.admin-user-empty{padding:20px;text-align:center;color:var(--muted);font-size:13px}
+.msg-sender{font-size:12.5px;font-weight:700;color:var(--primary);margin:0 0 8px;padding:0 2px;line-height:1.3;display:block}
+#group-messages .msg.other{padding-top:10px}
+#group-messages .msg .media-wrap{margin-top:2px}
+.msg-with-av{display:flex;align-items:flex-start;gap:8px;max-width:88%;align-self:flex-start}
+.msg-with-av .msg{max-width:100%}
+.msg-av{width:32px;height:32px;border-radius:50%;overflow:hidden;flex:0 0 auto;background:#dbe7ff;color:#1d5fd8;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.msg-av img{width:100%;height:100%;object-fit:cover;display:block}
+.msg-av-spacer{width:32px;flex:0 0 auto;visibility:hidden}
+/* Bubble grup lonjong ala WhatsApp */
+#group-messages{gap:6px}
+#group-messages .msg{border-radius:18px;padding:7px 11px 5px;line-height:1.35;max-width:78%;display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:8px}
+#group-messages .msg.other{border-top-left-radius:5px;background:#fff}
+#group-messages .msg.me{border-bottom-right-radius:5px;align-self:flex-end;max-width:78%}
+#group-messages .msg .msg-text,#group-messages .msg .msg-sender,#group-messages .msg .media-wrap,#group-messages .msg .msg-reply-quote{width:100%}
+#group-messages .msg .msg-text{width:auto;max-width:100%}
+#group-messages .msg .meta{display:flex;float:none;margin-top:0;margin-left:auto;justify-content:flex-end;gap:5px;opacity:.72;font-size:11px;line-height:1.15;flex:0 0 auto;padding-bottom:1px}
+#group-messages .msg .media-wrap{width:100%;max-width:240px}
+#group-messages .msg .media-wrap img,#group-messages .msg .media-wrap video{max-width:240px;max-height:260px}
+#group-messages .msg-with-av{max-width:88%}
+#group-messages .msg-with-av .msg{max-width:100%}
+#group-messages .msg-with-av + .msg-with-av{margin-top:4px}
+#group-messages .msg-sender{margin-bottom:2px}
+/* spacing antar bubble me/other biar tidak mepet */
+.messages{gap:8px}
+.msg.me + .msg.other,.msg.other + .msg.me{margin-top:6px}
+.msg-with-av + .msg.me,.msg.me + .msg-with-av{margin-top:8px}
+/* Reply quote di dalam bubble */
+.msg-reply-quote{
+  display:flex;gap:8px;align-items:stretch;margin:0 0 6px;padding:6px 8px 6px 0;
+  border-radius:8px;background:rgba(0,0,0,.06);overflow:hidden;cursor:pointer;max-width:100%
+}
+.msg.me .msg-reply-quote{background:rgba(255,255,255,.18)}
+.msg-reply-quote .mrq-bar{width:4px;flex:0 0 auto;border-radius:0 4px 4px 0;background:var(--primary)}
+.msg.me .msg-reply-quote .mrq-bar{background:#fff}
+.msg-reply-quote .mrq-body{flex:1;min-width:0;padding:2px 6px 2px 0}
+.msg-reply-quote .mrq-name{font-size:12px;font-weight:700;color:var(--primary);line-height:1.2;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.msg.me .msg-reply-quote .mrq-name{color:#e8f0ff}
+.msg-reply-quote .mrq-text{font-size:12.5px;opacity:.85;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.msg-reply-quote .mrq-thumb{width:42px;height:42px;flex:0 0 auto;border-radius:6px;overflow:hidden;background:#ddd}
+.msg-reply-quote .mrq-thumb img,.msg-reply-quote .mrq-thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.msg-reply-quote .mrq-thumb.mrq-sticker{background:transparent;border-radius:8px}
+.msg-reply-quote .mrq-thumb.mrq-sticker img,.msg-reply-quote .mrq-thumb.mrq-sticker video{object-fit:contain}
+.msg-reply-quote .mrq-thumb.mrq-sticker-em{background:transparent;font-size:28px;line-height:42px;text-align:center}
+/* Reply bar di atas composer */
+.reply-bar{
+  display:none;align-items:center;gap:10px;padding:8px 12px 6px;
+  background:#fff;border-top:1px solid var(--line);border-left:4px solid var(--primary)
+}
+.reply-bar.visible{display:flex}
+.reply-bar .rb-body{flex:1;min-width:0}
+.reply-bar .rb-name{font-size:13px;font-weight:700;color:var(--primary);line-height:1.2}
+.reply-bar .rb-text{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.reply-bar .rb-close{width:32px;height:32px;border:0;border-radius:50%;background:#f0f2f5;color:#54656f;display:flex;align-items:center;justify-content:center;flex:0 0 auto;cursor:pointer}
+.reply-bar .rb-thumb{width:40px;height:40px;border-radius:6px;overflow:hidden;flex:0 0 auto;background:#e8eaed}
+.reply-bar .rb-thumb img,.reply-bar .rb-thumb video{width:100%;height:100%;object-fit:cover}
+/* Mention picker */
+.mention-picker{
+  position:absolute;left:8px;right:8px;bottom:100%;z-index:40;
+  background:#fff;border-radius:14px 14px 0 0;box-shadow:0 -8px 28px rgba(20,40,80,.18);
+  max-height:min(280px,42vh);overflow-y:auto;-webkit-overflow-scrolling:touch;
+  display:none;border:1px solid var(--line);border-bottom:0;overscroll-behavior:contain
+}
+.mention-picker.visible{display:block}
+.mention-picker .mp-item{display:flex;align-items:center;gap:12px;padding:11px 14px;cursor:pointer;border-bottom:1px solid #f0f2f5;flex:0 0 auto}
+.mention-picker .mp-item:last-child{border-bottom:0}
+.mention-picker .mp-item:hover,.mention-picker .mp-item.active{background:#f7f9fc}
+.mention-picker .mp-item .mp-name{font-weight:600;font-size:14px}
+.mention-picker .mp-item .mp-uname{font-size:12px;color:var(--muted)}
+.mention-picker .mp-item .mp-av{width:36px;height:36px;border-radius:50%;overflow:hidden;background:#dbe7ff;color:#1d5fd8;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex:0 0 auto}
+.mention-picker .mp-item .mp-av img{width:100%;height:100%;object-fit:cover}
+.mention-picker .mp-item.mp-all .mp-av{background:var(--primary);color:#fff;font-size:11px;font-weight:700}
+.composer{position:relative}
+/* highlight @mention di bubble — biru jelas ala WA */
+.msg .mention-tag{color:#027eb5;font-weight:700}
+.msg.me .mention-tag{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.msg.other .mention-tag{color:#027eb5;font-weight:700}
+/* badge @ mention di daftar grup */
+.badge-mention{
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--primary);font-weight:800;font-size:13px;margin-right:4px;
+  vertical-align:middle;line-height:1
+}
+.chat-item .preview .prev-sender{font-weight:600;color:#54656f}
+
+/* Animasi: bubble & overlay OK; list/tab tidak di-reanimasi tiap refresh (itu penyebab kedip) */
+@keyframes listIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideFromRight{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes slideToRight{from{transform:translateX(0)}to{transform:translateX(100%)}}
+@keyframes bubbleMe{from{opacity:0;transform:translateX(14px) scale(.97)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes bubbleOther{from{opacity:0;transform:translateX(-14px) scale(.97)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes swIn{from{opacity:0}to{opacity:1}}
+@keyframes swOut{from{opacity:1}to{opacity:0}}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Tab utama: TANPA animasi (mencegah kedap-kedip refresh) */
+#view-conv,#view-group-conv{will-change:transform}
+#view-conv.active,#view-group-conv.active{animation:slideFromRight .26s cubic-bezier(.2,.85,.3,1)}
+/* Bubble chat — animasi kedatangan */
+.msg{animation:msgIn .22s ease}
+.msg.me{animation:bubbleMe .26s cubic-bezier(.2,.9,.3,1)}
+.msg.other{animation:bubbleOther .26s cubic-bezier(.2,.9,.3,1)}
+/* Status viewer & halaman overlay */
+.sw-viewer{animation:swIn .2s ease !important}
+.sw-viewer.closing{animation:swOut .18s ease forwards !important}
+.gc-page,.gi-page,.sc-page,.my-status-page{animation:listIn .22s ease}
+.media-lightbox{animation:swIn .16s ease}
+.sr-item{animation:listIn .2s ease both}
+/* chat-item/status-tile: HANYA saat class anim-enter (sekali), bukan tiap renderConversations */
+.chat-item.anim-enter,.status-tile.anim-enter{
+  animation:listIn .32s cubic-bezier(.2,.9,.3,1) both;
+  opacity:0;
+}
+
+

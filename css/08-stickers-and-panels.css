@@ -1,0 +1,175 @@
+/* ---- Attach popup menu (video / foto / kamera) ---- */
+.attach-menu{
+  position:absolute;left:10px;bottom:58px;z-index:50;
+  background:#fff;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.18);
+  padding:6px;min-width:150px;animation:popIn .18s ease;
+  border:1px solid var(--line)
+}
+.attach-menu.hidden{display:none!important}
+.attach-menu button{
+  display:flex;align-items:center;gap:12px;width:100%;
+  border:0;background:transparent;padding:11px 14px;border-radius:10px;
+  font-size:14px;font-weight:600;color:#111;cursor:pointer;text-align:left
+}
+.attach-menu button:hover{background:#f0f2f5}
+.attach-menu button .am-ico{
+  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  background:transparent!important;border-radius:0;flex:0 0 auto
+}
+.attach-menu button .am-ico .icon{width:22px;height:22px}
+.attach-menu button[data-attach="video"] .am-ico{color:#e67e22}
+.attach-menu button[data-attach="foto"] .am-ico{color:#27ae60}
+.attach-menu button[data-attach="kamera"] .am-ico{color:#c0392b}
+.composer{position:relative}
+
+/* ---- Sticker message: no bubble, large emoji/media ---- */
+.msg.sticker-msg{
+  background:transparent!important;box-shadow:none!important;padding:2px 0!important;
+  border-radius:0!important;max-width:160px;border:0!important
+}
+.msg.sticker-msg.sticker-with-reply{
+  background:linear-gradient(135deg,#2f7cff,#3f89ff)!important;
+  box-shadow:0 2px 8px rgba(47,124,255,.16)!important;
+  padding:8px 10px 6px!important;border-radius:14px!important;max-width:240px;
+  display:flex!important;flex-direction:column;align-items:stretch
+}
+.msg.other.sticker-msg.sticker-with-reply{
+  background:#fff!important;box-shadow:0 1px 4px rgba(0,0,0,.08)!important;color:#111
+}
+.msg.sticker-msg.me{align-self:flex-end;margin-left:auto}
+.msg.sticker-msg.other{align-self:flex-start}
+#group-messages .msg.sticker-msg{
+  max-width:160px!important;padding:2px 0!important;display:block!important;flex-wrap:nowrap
+}
+#group-messages .msg.sticker-msg.sticker-with-reply{
+  max-width:240px!important;padding:8px 10px 6px!important;display:flex!important;flex-direction:column
+}
+#group-messages .msg.me.sticker-msg{align-self:flex-end;margin-left:auto;margin-right:2px}
+#group-messages .msg.other.sticker-msg{align-self:flex-start}
+.msg.sticker-msg .sticker-img,
+.msg.sticker-msg .sticker-vid{
+  width:140px;height:140px;object-fit:contain;display:block;
+  border:0!important;border-radius:0;cursor:pointer;background:transparent!important
+}
+.msg.sticker-msg .sticker-emoji{
+  font-size:88px;line-height:1;text-align:center;
+  cursor:pointer;user-select:none;-webkit-user-select:none;
+  width:140px;height:140px;display:flex;align-items:center;justify-content:center;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif;
+  overflow:hidden;background:transparent!important
+}
+.msg.sticker-msg .meta{justify-content:flex-end;padding:2px 4px 0;opacity:.65}
+.msg.sticker-msg.me .meta{color:#54656f}
+.msg.sticker-msg.other .meta{color:#54656f}
+/* Sticker di panel: tanpa card background, lebih besar */
+.sticker-panel .spk{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  padding:4px!important;border-radius:0!important
+}
+.sticker-panel .spk img,
+.sticker-panel .spk video{
+  width:100%;height:100%;object-fit:contain;border-radius:8px;background:transparent!important
+}
+/* Swipe-to-reply visual */
+.msg.swiping,.msg-with-av.swiping .msg{
+  transition:none!important
+}
+.msg.swipe-reply-hint::before,
+.msg-with-av.swipe-reply-hint .msg::before{
+  content:'↩';position:absolute;left:-28px;top:50%;transform:translateY(-50%);
+  color:var(--primary);font-size:18px;opacity:.85;pointer-events:none
+}
+.msg.me.swipe-reply-hint::before{
+  left:auto;right:-28px
+}
+
+/* ---- Sticker panel (clean scroll layout) ---- */
+.sticker-panel{
+  position:fixed;left:0;right:0;bottom:0;z-index:9800;
+  background:#fff;border-radius:18px 18px 0 0;
+  box-shadow:0 -8px 40px rgba(0,0,0,.18);
+  display:flex;flex-direction:column;height:56vh;max-height:56vh;
+  animation:slideUp .22s ease;padding-bottom:env(safe-area-inset-bottom,0);
+  overflow:hidden
+}
+.sticker-panel.hidden{display:none!important}
+.sticker-panel .sp-handle{width:40px;height:4px;border-radius:2px;background:#d0d4d9;margin:10px auto 6px;flex:0 0 auto}
+.sticker-panel .sp-tabs{
+  display:flex;align-items:center;gap:4px;padding:4px 12px 8px;
+  border-bottom:1px solid var(--line);flex:0 0 auto
+}
+.sticker-panel .sp-tab{
+  width:40px;height:40px;border:0;border-radius:10px;background:transparent;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#54656f;flex:0 0 auto
+}
+.sticker-panel .sp-tab.active{background:#eef3ff;color:var(--primary)}
+.sticker-panel .sp-tab .icon{width:22px;height:22px}
+.sticker-panel .sp-search-row{
+  display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #f0f2f5;flex:0 0 auto
+}
+.sticker-panel .sp-search-row input{
+  flex:1;border:0;outline:0;background:#f0f2f5;border-radius:20px;padding:9px 14px;font-size:14px
+}
+.sticker-panel .sp-grid{
+  flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:10px 12px 24px;display:block
+}
+.sticker-panel .sp-create-row{
+  display:flex;gap:8px;margin:0 0 12px;width:100%
+}
+.sticker-panel .sp-create{
+  flex:1;min-height:56px;border-radius:14px;border:1.5px dashed #c5cad1;background:#f7f9fc;
+  display:flex;flex-direction:row;align-items:center;justify-content:center;gap:10px;
+  cursor:pointer;color:#54656f;font-size:13px;font-weight:600;padding:10px 12px
+}
+.sticker-panel .sp-create .sp-create-ico{
+  width:34px;height:34px;border-radius:50%;background:#e74c3c;color:#fff;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto
+}
+.sticker-panel .sp-create .sp-create-ico .icon{width:16px;height:16px}
+.sticker-panel .sp-section{
+  display:block;width:100%;font-size:11px;font-weight:700;color:#7a8087;
+  text-transform:uppercase;letter-spacing:.5px;padding:12px 2px 8px;clear:both
+}
+.sticker-panel .sp-row{
+  display:flex;flex-wrap:wrap;gap:8px;width:100%;margin:0 0 4px
+}
+.sticker-panel .spk{
+  width:calc(25% - 6px);height:88px;border-radius:0;border:0;padding:4px;
+  background:transparent!important;cursor:pointer;box-shadow:none!important;
+  display:flex;align-items:center;justify-content:center;
+  flex:0 0 auto;overflow:hidden
+}
+.sticker-panel .spk:active{background:rgba(47,124,255,.08)!important;transform:scale(.96)}
+.sticker-panel .spk img,
+.sticker-panel .spk video{
+  width:80px;height:80px;object-fit:contain;display:block;pointer-events:none;
+  background:transparent!important;border-radius:8px
+}
+.sticker-panel .spk .spk-em{
+  font-size:42px;line-height:80px;height:80px;width:100%;
+  text-align:center;display:block;pointer-events:none;user-select:none;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif
+}
+.sticker-panel .sp-empty{display:block;width:100%;text-align:center;padding:28px 12px;color:var(--muted);font-size:13px}
+
+
+/* Sticker action sheet */
+.sticker-action{
+  position:fixed;left:0;right:0;bottom:0;z-index:9900;
+  background:#fff;border-radius:16px 16px 0 0;padding:8px 0 calc(12px + env(safe-area-inset-bottom,0));
+  box-shadow:0 -8px 32px rgba(0,0,0,.2);animation:slideUp .2s ease
+}
+.sticker-action button{
+  display:flex;align-items:center;gap:14px;width:100%;border:0;background:transparent;
+  padding:14px 20px;font-size:15px;font-weight:500;color:#111;cursor:pointer;text-align:left
+}
+.sticker-action button:hover{background:#f5f6f8}
+.sticker-action button .sa-ico{
+  width:36px;height:36px;border-radius:50%;background:#eef3ff;color:var(--primary);
+  display:flex;align-items:center;justify-content:center
+}
+.sticker-action button .sa-ico .icon{width:18px;height:18px}
+.sticker-backdrop{position:fixed;inset:0;z-index:9790;background:rgba(0,0,0,.35);animation:fadeIn .15s ease}
+
+/* Sticker create preview (no caption) */

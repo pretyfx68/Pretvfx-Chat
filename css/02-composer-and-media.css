@@ -1,0 +1,110 @@
+/* WA-style composer */
+.composer{align-items:flex-end;gap:6px;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px))}
+.composer .comp-side{display:flex;align-items:center;gap:2px;flex:0 0 auto}
+.composer .comp-icon{width:40px;height:40px;border:0;background:transparent;border-radius:50%;color:#54656f;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}
+.composer .comp-icon:hover{background:#f0f2f5;color:var(--primary)}
+.composer .comp-icon .icon{width:22px;height:22px}
+.composer .comp-icon.sticker-btn{color:#54656f}
+.composer .comp-input-wrap{flex:1;min-width:0;width:0;display:flex;align-items:flex-end;background:#f0f2f5;border-radius:24px;border:1px solid transparent;padding:0 4px 0 14px;transition:background .15s,border-color .15s}
+.composer .comp-input-wrap:focus-within{background:#fff;border-color:var(--primary)}
+.composer textarea{flex:1;min-width:0;width:0;resize:none;border:0;border-radius:0;padding:11px 6px;font-size:15px;line-height:1.35;outline:0;max-height:120px;min-height:24px;background:transparent;box-shadow:none}
+.composer textarea:focus{background:transparent;border-color:transparent}
+.composer .send-btn,.composer .mic-btn{width:48px;height:48px;flex:0 0 auto;border:0;border-radius:50%;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(47,124,255,.35)}
+.composer .send-btn:hover,.composer .mic-btn:hover{background:var(--primary-dark)}
+.composer .send-btn.hidden,.composer .mic-btn.hidden{display:none !important}
+.composer .mic-btn.recording{background:var(--danger);animation:pulse-rec 1s ease infinite}
+@keyframes pulse-rec{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.45)}50%{box-shadow:0 0 0 10px rgba(231,76,60,0)}}
+.composer .rec-bar{display:none;flex:1;align-items:center;gap:12px;padding:0 6px 0 12px;min-height:48px;width:100%}
+.composer.recording .comp-side,.composer.recording .comp-input-wrap,.composer.recording .send-btn,.composer.recording .mic-btn:not(.recording){display:none !important}
+.composer.recording .rec-bar{display:flex}
+.composer .rec-dot{width:10px;height:10px;border-radius:50%;background:var(--danger);animation:spin .9s linear infinite;flex:0 0 auto}
+.composer .rec-time{font-size:14px;font-weight:600;color:#111;font-variant-numeric:tabular-nums;flex:0 0 auto}
+.composer .rec-cancel{border:0;background:transparent;color:var(--danger);font-size:13px;font-weight:600;padding:8px 12px;cursor:pointer;flex:0 0 auto;margin-right:auto}
+.composer .rec-send{
+  width:48px;height:48px;border:0;border-radius:50%;background:var(--primary);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+  margin-left:12px;box-shadow:0 4px 12px rgba(47,124,255,.35)
+}
+
+/* Media compose sheet (view once) */
+.media-compose{position:fixed;inset:0;z-index:9950;background:#0b0b0f;display:flex;flex-direction:column;animation:fadeIn .18s ease}
+.media-compose.hidden{display:none !important}
+.mc-top{display:flex;align-items:center;gap:8px;padding:12px 12px calc(12px + env(safe-area-inset-top,0px));position:absolute;top:0;left:0;right:0;z-index:3;background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent)}
+.mc-top .mc-btn{width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center}
+.mc-top .mc-btn.active{background:var(--primary);color:#fff}
+.mc-top .mc-spacer{flex:1}
+.mc-preview{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
+.mc-preview img,.mc-preview video{max-width:100%;max-height:100%;object-fit:contain}
+.mc-bottom{padding:12px 14px calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);position:absolute;left:0;right:0;bottom:0;z-index:3}
+.mc-caption{flex:1;height:44px;border-radius:22px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.12);color:#fff;padding:0 16px;outline:0;font-size:14px}
+.mc-caption::placeholder{color:rgba(255,255,255,.6)}
+.mc-send{width:48px;height:48px;border:0;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(47,124,255,.4)}
+.mc-once-hint{position:absolute;top:70px;left:0;right:0;text-align:center;color:#fff;font-size:13px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.6);z-index:2;pointer-events:none}
+.mc-once-hint.hidden{display:none}
+
+/* View-once message bubble (WA style — NO thumbnail) */
+.msg .vo-bubble{display:flex;align-items:center;gap:12px;min-width:168px;max-width:260px;padding:4px 2px;cursor:pointer;user-select:none}
+.msg .vo-bubble .vo-ico{
+  width:44px;height:44px;border-radius:50%;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(47,124,255,.12);color:var(--primary);position:relative
+}
+.msg.me .vo-bubble .vo-ico{background:rgba(255,255,255,.22);color:#fff}
+.msg .vo-bubble .vo-ico .icon{width:22px;height:22px}
+.msg .vo-bubble .vo-ico .vo-1{
+  position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;border-radius:50%;
+  background:#fff;color:var(--primary);font-size:10px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  border:1.5px solid var(--primary);line-height:1
+}
+.msg.me .vo-bubble .vo-ico .vo-1{background:#fff;color:var(--primary);border-color:#fff}
+.msg .vo-bubble .vo-body{flex:1;min-width:0}
+.msg .vo-bubble .vo-title{font-size:14.5px;font-weight:600;line-height:1.2}
+.msg .vo-bubble .vo-sub{font-size:12px;opacity:.72;margin-top:2px;font-weight:400}
+.msg .vo-bubble.vo-opened{opacity:.85;cursor:default}
+.msg .vo-bubble.vo-opened .vo-ico{background:rgba(0,0,0,.06);color:#7a8087}
+.msg.me .vo-bubble.vo-opened .vo-ico{background:rgba(255,255,255,.14);color:rgba(255,255,255,.85)}
+
+/* Voice note bubble (WA style) */
+.msg-audio{display:flex;align-items:center;gap:10px;min-width:220px;max-width:280px;padding:2px 0}
+.msg-audio .audio-av{
+  width:42px;height:42px;border-radius:50%;flex:0 0 auto;overflow:hidden;
+  background:#dbe7ff;color:#1d5fd8;display:flex;align-items:center;justify-content:center;
+  font-weight:600;font-size:13px;position:relative
+}
+.msg-audio .audio-av img{width:100%;height:100%;object-fit:cover;display:block}
+.msg-audio .audio-av .mic-badge{
+  position:absolute;right:-2px;bottom:-2px;width:16px;height:16px;border-radius:50%;
+  background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid #fff;font-size:8px
+}
+.msg.me .msg-audio .audio-av .mic-badge{background:#fff;color:var(--primary);border-color:rgba(255,255,255,.9)}
+.msg-audio .audio-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.msg-audio .audio-row{display:flex;align-items:center;gap:8px}
+.msg-audio .audio-play{
+  width:34px;height:34px;border:0;border-radius:50%;flex:0 0 auto;
+  background:rgba(47,124,255,.14);color:var(--primary);
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0
+}
+.msg.me .msg-audio .audio-play{background:rgba(255,255,255,.22);color:#fff}
+.msg-audio .audio-play .icon{width:16px;height:16px}
+.msg-audio .audio-wave{
+  flex:1;height:28px;display:flex;align-items:center;gap:2px;min-width:0
+}
+.msg-audio .audio-wave span{
+  flex:1;max-width:4px;border-radius:2px;background:rgba(47,124,255,.35);
+  height:30%;min-height:4px
+}
+.msg.me .msg-audio .audio-wave span{background:rgba(255,255,255,.45)}
+.msg-audio .audio-wave span:nth-child(3n){height:70%}
+.msg-audio .audio-wave span:nth-child(5n){height:95%}
+.msg-audio .audio-wave span:nth-child(2n){height:45%}
+.msg-audio .audio-wave span:nth-child(7n){height:60%}
+.msg-audio .audio-wave.playing span{animation:wavePulse .6s ease infinite alternate}
+.msg-audio .audio-wave.playing span:nth-child(odd){animation-delay:.1s}
+.msg-audio .audio-wave.playing span:nth-child(3n){animation-delay:.2s}
+@keyframes wavePulse{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+.msg-audio .audio-meta{display:flex;align-items:center;justify-content:space-between;padding-left:42px}
+.msg-audio .audio-dur{font-size:11px;opacity:.75;font-variant-numeric:tabular-nums}
+.msg-audio audio{display:none}
+
